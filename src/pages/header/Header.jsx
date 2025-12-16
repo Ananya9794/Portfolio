@@ -3,11 +3,21 @@ import { useState } from "react";
 const Header = () => {
    const [open, setOpen] = useState(false); 
 
+  //  download-resume-----
+   function downloadResume(){
+      const link =document.createElement('a');
+      link.href="/ANANYA _SETHI_resume.pdf";
+      link.download="Ananya+Sethi_Resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link)
+   }
+
   return (
     <>
-    
-    <nav className="w-[90%] mx-auto px-6 py-6 flex items-center justify-between">
-        <div className="flex items-center gap-3">
+    <nav className="sticky top-0 z-50 bg-[#071030] backdrop-blur">
+    <div className="w-[90%] mx-auto px-6 py-6 flex items-center justify-between">
+        <div className=" flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-linear-to-br from-[#0b3d91] to-[#3a6fe0] flex items-center justify-center shadow-lg">
             <span className="font-bold">AS</span>
           </div>
@@ -21,7 +31,12 @@ const Header = () => {
             <a href="#skill" className="hover:text-white">Skill</a>
           <a href="#projects" className="hover:text-white">Projects</a>
           <a href="#contact" className="hover:text-white">Contact</a>
-          <a href="/ANANYA _SETHI_resume.pdf" target="_blank" className="px-4 py-2 bg-gradient-to-r from-[#0b3d91] to-[#3a6fe0] rounded-lg shadow-md">Resume</a>
+
+          <button onClick={downloadResume} className="px-4 py-2 bg-linear-to-r from-[#0b3d91] to-[#3a6fe0] rounded-lg shadow-md">Resume</button>
+
+
+
+          {/* <a href="/ANANYA _SETHI_resume.pdf" target="_blank" className="px-4 py-2 bg-gradient-to-r from-[#0b3d91] to-[#3a6fe0] rounded-lg shadow-md">Resume</a> */}
         </div>
         <button onClick={() => setOpen(!open)} className="md:hidden p-2 ring-1 ring-slate-700 rounded-md">☰</button>
 
@@ -43,7 +58,7 @@ const Header = () => {
       )}
         
 
-
+    </div>
     </nav>
   
 

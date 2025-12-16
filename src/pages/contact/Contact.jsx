@@ -2,10 +2,13 @@ import React from 'react'
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
+  import { ToastContainer, toast } from 'react-toastify';
+
 const Contact = () => {
   const send=()=>{
     alert("response submitted")
   }
+  //  const notify = () => toast("response submitted");
   return (
     <>
      {/* CONTACT */}
@@ -30,11 +33,14 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="space-y-4" onSubmit={send} data-aos="fade-left" data-aos-delay="200">
+          <form className="space-y-4" onSubmit={send} data-aos="fade-left" data-aos-delay="200" >
             <input className="w-full rounded-lg p-3 bg-slate-800/50 ring-1 ring-slate-700 placeholder:text-slate-400" required placeholder="Your name" />
             <input className="w-full rounded-lg p-3 bg-slate-800/50 ring-1 ring-slate-700 placeholder:text-slate-400" required placeholder="Email" />
             <textarea className="w-full rounded-lg p-3 bg-slate-800/50 ring-1 ring-slate-700 placeholder:text-slate-400 h-28" required placeholder="Message" />
-            <button className="px-5 py-3 rounded-lg bg-linear-to-r from-[#0b3d91] to-[#3a6fe0] ">Send Message</button>
+            
+              <button className="px-5 py-3 rounded-lg bg-linear-to-r from-[#0b3d91] to-[#3a6fe0] " >Send Message</button>
+             
+            
           </form>
         </div>
       </section>
