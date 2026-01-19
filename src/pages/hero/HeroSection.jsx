@@ -22,7 +22,7 @@ useEffect(() => {
     {/* hro section */}
     <header className="w-[90%] mx-auto px-6 py-12 grid md:grid-cols-2 gap-10 items-center">
         <div className="space-y-6" data-aos="fade-right" data-aos-delay="200">
-          <p className="inline-block px-3 py-1 rounded-full bg-slate-800/30 text-sky-300 text-xl">Hi! I'm Ananya Sethi</p>
+          <p className="inline-block px-3 py-1 rounded-full bg-slate-800 text-sky-300 text-xl">Hi! I'm Ananya Sethi</p>
           <h2 className="text-4xl md:text-4xl font-extrabold leading-tight">
            <span className="bg-linear-to-r from-[#5fa3ff] to-[#163e9a] bg-clip-text text-transparent transition-all duration-500">
     {roles[currentRole]}</span>

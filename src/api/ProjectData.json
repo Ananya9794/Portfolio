@@ -5,7 +5,8 @@
         "desc": "Furniture-Ecommerce Website",
         "tags": ["HTML","CSS","React"] ,
         "live": "https://graceful-queijadas-6e9a46.netlify.app/",
-        "code": "https://github.com/Ananya9794/EverWood_Furniture"
+        "code": "https://github.com/Ananya9794/EverWood_Furniture",
+        "img":"/EverWood.png"
     },
     { 
         "id": 2, 
@@ -13,7 +14,8 @@
         "desc": "Multi-disease prediction app", 
         "tags": ["Python","ML","Streamlit"] ,
         "live": "https://multiple-disease-prediction-system-lelxagpnxamfxahkpy9s8q.streamlit.app/",
-        "code": "https://github.com/Ananya9794/Multiple-Disease-Prediction-System"
+        "code": "https://github.com/Ananya9794/Multiple-Disease-Prediction-System",
+        "img":"/Disease.png"
         
     },
     { 
@@ -22,7 +24,8 @@
         "desc": "React Website", 
         "tags": ["html","Css","React"] ,
         "live": "https://cryptoflow-project.netlify.app/",
-        "code": "https://github.com/Ananya9794/CryptoFlow"
+        "code": "https://github.com/Ananya9794/CryptoFlow",
+        "img":"/crypto.png"
     },
     { 
         "id": 4, 
@@ -31,7 +34,8 @@
         "tags": ["HtMl","CSS","javascript","Bootstrap"] ,
         
         "live": "https://istudio-page.netlify.app/",
-        "code": "https://github.com/Ananya9794/istudio_webpage"
+        "code": "https://github.com/Ananya9794/istudio_webpage",
+        "img":"/istudio.png"
     },
     { 
         "id": 5, 
@@ -39,7 +43,8 @@
         "desc": "Real Estate project ", 
         "tags": ["HtMl","CSS","javascript"],
         "live": "https://realestateindia-project.netlify.app/",
-        "code": "https://github.com/Ananya9794/Real-Estate" 
+        "code": "https://github.com/Ananya9794/Real-Estate" ,
+        "img":"/realstate.png"
     }
 
     

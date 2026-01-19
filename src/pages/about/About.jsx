@@ -112,10 +112,11 @@ bg-clip-text text-transparent inline-block">Education</h4>
   </div>
 </div>
 
-
-
-
       </section>
+
+
+
+
     </>
   )
 }

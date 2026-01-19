@@ -15,8 +15,8 @@ const Header = () => {
 
   return (
     <>
-    <nav className="sticky top-0 z-50 bg-[#071030] backdrop-blur">
-    <div className="w-[90%] mx-auto px-6 py-6 flex items-center justify-between">
+<nav className="sticky top-0 z-50 bg-[#071030] backdrop-blur relative bg-transparent">
+      <div className="w-[90%] mx-auto px-6 py-6 flex items-center justify-between">
         <div className=" flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-linear-to-br from-[#0b3d91] to-[#3a6fe0] flex items-center justify-center shadow-lg">
             <span className="font-bold">AS</span>
@@ -41,7 +41,7 @@ const Header = () => {
         <button onClick={() => setOpen(!open)} className="md:hidden p-2 ring-1 ring-slate-700 rounded-md">☰</button>
 
         {/* Mobile Menu */}
-      {open && (
+      {/* {open && (
         <div className="md:hidden bg-blue-950 px-6 py-4 space-y-4 text-slate-300  h-full">
           <div className="grid">
             <div ><a href="#about" onClick={() => setOpen(false)}>About</a></div>
@@ -55,8 +55,33 @@ const Header = () => {
           </div>
           
         </div>
-      )}
-        
+      )} */}
+
+      {/* Mobile Menu */}
+      {open && (
+<div
+  className={`md:hidden absolute top-full left-0 w-full bg-[#071030] px-6 py-4 text-slate-300
+  transition-all duration-300 ease-in-out overflow-hidden
+  ${open ? "max-h-screen opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-4"}
+  `}
+>
+  <div className="flex flex-col gap-4">
+    <a href="#about"  onClick={() => setOpen(false)}>About</a>
+    <a href="#skill" onClick={() => setOpen(false)}>Skill</a>
+    <a href="#projects" onClick={() => setOpen(false)}>Projects</a>
+    <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
+
+    <a
+      href="/resume.pdf"
+      target="_blank"
+      className="text-white bg-linear-to-r from-[#0b3d91] to-[#3a6fe0] px-4 py-2 rounded-lg text-center"
+    >
+      Resume
+    </a>
+  </div>
+</div>
+
+  )}     
 
     </div>
     </nav>

@@ -4,11 +4,20 @@ const ProjectChild = ({ data }) => {
   return (
     <>
       <div className="bg-slate-900/40 border  border-gray-600 hover:border-amber-600 rounded-xl p-5 backdrop-blur-md" data-aos="fade-in" data-aos-delay="200">
-        
+        <div className="w-full h-40  overflow-hidden rounded-lg my-3 mb-6 ">
+          <img
+            src={data.img}
+            alt={data.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="flex items-start justify-between">
           <h4 className="font-semibold text-lg">{data.title}</h4>
           <div className="text-sm text-slate-400">#{data.id}</div>
         </div>
+
+
+
 
         <p className="text-slate-300 mt-3 text-sm">{data.desc}</p>
 
@@ -22,11 +31,11 @@ const ProjectChild = ({ data }) => {
 
         <div className="mt-6 flex items-center gap-3">
           <a href={data.live}
-          target="_blank" className="text-sm px-3 py-2 rounded-md bg-gradient-to-r from-[#163e9a] to-[#3a6fe0] shadow-sm">
+            target="_blank" className="text-sm px-3 py-2 rounded-md bg-gradient-to-r from-[#163e9a] to-[#3a6fe0] shadow-sm">
             Live
           </a>
           <a href={data.code}
-          target="_blank" className="text-sm px-3 py-2 rounded-md ring-1 ring-slate-700">
+            target="_blank" className="text-sm px-3 py-2 rounded-md ring-1 ring-slate-700">
             Code
           </a>
         </div>
