@@ -3,6 +3,7 @@ import './App.css'
 import Homeontainer from './container/home/Homeontainer'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import Lenis from "lenis";
 
 function App() {
   useEffect(() => {
@@ -12,6 +13,24 @@ function App() {
       easing: 'ease-in-out',
     })
   }, [])
+//for smooth----------------
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      smooth: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy(); // cleanup
+    };
+  }, []);
 
   return (
     <>
