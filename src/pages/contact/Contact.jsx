@@ -1,22 +1,54 @@
 import React from 'react'
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
-  import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios'
 
 const Contact = () => {
-  const send=()=>{
-    alert("response submitted")
+  const [formData, setFormData] = useState([])
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+  const url = "http://localhost:5000/api"
+
+  const getData = async () => {
+    try {
+      const res = await axios.get(`${url}/contact/get-data`);
+      setFormData(res.data.data)
+      console.log(res.data.data);
+    }
+    catch (error) {
+      console.log(error)
+    }
   }
+  useEffect(() => {
+    getData()
+  }, [])
+
+  const postData = async (e) => {
+    e.preventDefault();
+    const payload = { name, email, message }
+    const result = await axios.post(`${url}/contact/post-data`, payload)
+    setFormData(prev => [result.data, ...prev])
+    alert("response Submitted")
+    setName("");
+    setEmail("");
+    setMessage("");
+  }
+
+  
   //  const notify = () => toast("response submitted");
   return (
     <>
-     {/* CONTACT */}
+      {/* CONTACT */}
       <section id="contact" className="w-[90%] mx-auto px-6 py-12">
         <h3 className="text-4xl font-bold mb-10  bg-linear-to-r from-[#163e9a] via-[#3a6fe0] to-[#5fa3ff] 
                 bg-clip-text text-transparent inline-block">Contact Us</h3>
-        <div  className="bg-slate-900/30 border border-slate-700/30 rounded-2xl p-8 md:p-12 grid md:grid-cols-2 gap-8">
-        
+        <div className="bg-slate-900/30 border border-gray-600 rounded-2xl p-8 md:p-12 grid md:grid-cols-2 gap-8">
+
           <div data-aos="fade-right" data-aos-delay="200">
             <h3 className="text-2xl font-bold">Get in touch</h3>
             <p className="text-slate-300 mt-2 text-sm">Want to work together? Send me a message — I reply quickly.</p>
@@ -33,14 +65,22 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="space-y-4" onSubmit={send} data-aos="fade-left" data-aos-delay="200" >
-            <input className="w-full rounded-lg p-3 bg-slate-800/50 ring-1 ring-slate-700 placeholder:text-slate-400" required placeholder="Your name" />
-            <input className="w-full rounded-lg p-3 bg-slate-800/50 ring-1 ring-slate-700 placeholder:text-slate-400" required placeholder="Email" />
-            <textarea className="w-full rounded-lg p-3 bg-slate-800/50 ring-1 ring-slate-700 placeholder:text-slate-400 h-28" required placeholder="Message" />
-            
-              <button className="px-5 py-3 rounded-lg bg-linear-to-r from-[#0b3d91] to-[#3a6fe0] " >Send Message</button>
-             
-            
+          <form className="space-y-4" onSubmit={postData} data-aos="fade-left" data-aos-delay="200" >
+            <input className="w-full rounded-lg p-3 bg-slate-800/50 ring-1 ring-slate-700 placeholder:text-slate-400"
+              required
+              value={name} onChange={(elm) => setName(elm.target.value)}
+              placeholder="Your name" />
+            <input className="w-full rounded-lg p-3 bg-slate-800/50 ring-1 ring-slate-700 placeholder:text-slate-400"
+              value={email} onChange={(elm) => setEmail(elm.target.value)}
+              required placeholder="Email" />
+            <textarea className="w-full rounded-lg p-3 bg-slate-800/50 ring-1 ring-slate-700 placeholder:text-slate-400 h-28 resize-none"
+              value={message} onChange={(elm) => setMessage(elm.target.value)}
+              required placeholder="Message" 
+              />
+
+            <button className="px-5 py-3 rounded-lg bg-linear-to-r from-[#0b3d91] to-[#3a6fe0] " >Send Message</button>
+
+
           </form>
         </div>
       </section>
